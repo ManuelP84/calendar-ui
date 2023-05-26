@@ -144,6 +144,14 @@
   .input-field {
     width: 500px;
   }
+
+  .task-container {
+    display: flex;
+  }
+
+  .task-content-buttons {
+    display: inline-block;
+  }
 </style>
 
 <!-- Toolbar -->
@@ -163,12 +171,7 @@
     <br />
     <div>
       <mat-form-field class="input-field">
-        <input
-          matInput
-          [(ngModel)]="inputTitle"
-          matInput
-          placeholder="Task title"
-        />
+        <input matInput [(ngModel)]="inputTitle" placeholder="Task title" />
       </mat-form-field>
     </div>
 
@@ -177,7 +180,6 @@
         <textarea
           matInput
           [(ngModel)]="inputDescription"
-          matInput
           placeholder="Task description"
           rows="3"
         ></textarea>
@@ -185,7 +187,7 @@
     </div>
 
     <div class="card-container">
-      <button mat-button (click)="saveTask()" class="card" tabindex="0">
+      <!-- <button mat-button (click)="saveTask()" class="card" tabindex="0">
         <svg
           class="material-icons"
           xmlns="http://www.w3.org/2000/svg"
@@ -196,24 +198,35 @@
           <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
         </svg>
         <span>REGISTER</span>
+      </button> -->
+      <button mat-button (click)="saveTask()" class="card" tabindex="0">
+        <span>SAVE</span>
       </button>
     </div>
   </div>
 
   <div class="task-list">
     <mat-card class="example-card" *ngFor="let task of tasks">
-      <div class="task-content">
-        <mat-card-header>
-          <mat-card-title>
-            {{ task.title }}
-            <button mat-button (click)="deleteTask(task.id)" tabindex="0">
-              Delete
-            </button>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p>{{ task.description }}</p>
-        </mat-card-content>
+      <div class="task-container">
+        <div class="task-content">
+          <mat-card-header>
+            <mat-card-title>
+              {{ task.title }}
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ task.description }}</p>
+          </mat-card-content>
+        </div>
+        <div class="task-content-buttons">
+          <button mat-button (click)="editTask(task)" tabindex="0">
+            Edit        
+          </button>
+          <button mat-button (click)="deleteTask(task.id)" tabindex="0">
+            Delete
+          </button>
+          
+        </div>
       </div>
     </mat-card>
   </div>
