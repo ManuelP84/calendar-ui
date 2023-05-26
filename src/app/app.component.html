@@ -159,22 +159,33 @@
 <div class="content" role="main">
   <div class="task-form">
     <h1>Calendar</h1>
-    <p>Please enter your pending tasks....</p>
+    <p>Please enter your pending tasks...</p>
     <br />
     <div>
       <mat-form-field class="input-field">
-        <input matInput placeholder="Task title" />
+        <input
+          matInput
+          [(ngModel)]="inputTitle"
+          matInput
+          placeholder="Task title"
+        />
       </mat-form-field>
     </div>
 
     <div>
       <mat-form-field class="input-field">
-        <textarea matInput placeholder="Task description" rows="3"></textarea>
+        <textarea
+          matInput
+          [(ngModel)]="inputDescription"
+          matInput
+          placeholder="Task description"
+          rows="3"
+        ></textarea>
       </mat-form-field>
     </div>
 
     <div class="card-container">
-      <button class="card" tabindex="0">
+      <button mat-button (click)="saveTask()" class="card" tabindex="0">
         <svg
           class="material-icons"
           xmlns="http://www.w3.org/2000/svg"
@@ -195,7 +206,9 @@
         <mat-card-header>
           <mat-card-title>
             {{ task.title }}
-            <button tabindex="0">Delete</button>
+            <button mat-button (click)="deleteTask(task.id)" tabindex="0">
+              Delete
+            </button>
           </mat-card-title>
         </mat-card-header>
         <mat-card-content>
