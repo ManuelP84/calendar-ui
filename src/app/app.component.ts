@@ -35,7 +35,6 @@ export class AppComponent implements OnInit {
   }
 
   saveTask(): void {
-    // const newID = new Date().getTime().toString();
     if (!this.inputTitle || !this.inputDescription) return;
     if (!this.id) {
       this.task = {
