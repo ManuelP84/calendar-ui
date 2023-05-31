@@ -1,0 +1,35 @@
+<div class="task-form">
+  <div >
+    <h1>Tasks</h1>
+    <br />
+    <div>
+      <mat-form-field class="input-field">
+        <input matInput [(ngModel)]="inputTitle" placeholder="Task title" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-field">
+        <textarea
+          matInput
+          [(ngModel)]="inputDescription"
+          placeholder="Task description"
+          rows="2"
+        ></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <button mat-button (click)="saveTask()" class="card" tabindex="0">
+      <span>SAVE</span>
+    </button>
+  </div>
+</div>
+<div class="task-list">
+  <app-table
+    [tasks]="tasks"
+    [saveTask]="boundedSaveTask"
+    [editTask]="boundedEditTask"
+    [deleteTask]="boundedDeleteTask"
+  ></app-table>
+</div>

@@ -7,12 +7,18 @@ import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TableComponent } from './components/tasks/table/table.component';
+import { TasksComponent } from './components/tasks/tasks/tasks.component';
+import { FormComponent } from './components/tasks/form/form.component';
+import { MeetingComponent } from './components/meeting/meeting/meeting.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TableComponent, TasksComponent, FormComponent, MeetingComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -23,6 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatGridListModule,
     MatSelectModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
